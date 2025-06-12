@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_tip_snippet_form" model="ir.ui.view">
+        <field name="name">tip.snippet.form</field>
+        <field name="model">tip.snippet</field>
+        <field name="arch" type="xml">
+            <form string="Tip of the Day">
+                <sheet>
+                    <div>
+                        <field name="background_image" nolabel="1" widget="image" class="oe_avatar"/>
+                        <h2>
+                            <field name="name"/>
+                        </h2>
+                    </div>
+                    <br> </br>
+                    <group>
+                        <group col="2">
+                            <field name="tip_text"/>
+                            <field name="description"/>
+                        </group>
+                        <group col="2">
+                            <field name="category"/>
+                            <field name="date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tip_snippet_list" model="ir.ui.view">
+        <field name="name">tip.snippet.list</field>
+        <field name="model">tip.snippet</field>
+        <field name="arch" type="xml">
+            <list string="Tips">
+                <field name="name"/>
+                <field name="tip_text"/>
+                <field name="category"/>
+                <field name="date"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_tip_snippet" model="ir.actions.act_window">
+        <field name="name">Tips</field>
+        <field name="res_model">tip.snippet</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_tip_snippet"
+              name="Tips"
+              parent="website.menu_website_global_configuration"
+              action="action_tip_snippet"
+              sequence="10"/>
+</odoo>

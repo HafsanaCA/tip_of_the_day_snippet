@@ -1,55 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record id="view_tip_snippet_form" model="ir.ui.view">
-        <field name="name">tip.snippet.form</field>
-        <field name="model">tip.snippet</field>
-        <field name="arch" type="xml">
-            <form string="Tip of the Day">
-                <sheet>
-                    <div>
-                        <field name="background_image" nolabel="1" widget="image" class="oe_avatar"/>
-                        <h2>
-                            <field name="name"/>
-                        </h2>
+    <template id="tip_of_the_day_custom_snippet" name="Tips">
+        <section class="oe_snippet_body o_colored_level tip-snippet-dynamic" data-snippet="tip_of_the_day" data-name="Tips">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-12 text-center mt-4 p-5">
+                        <h3 class="tip-title">Tip of the day</h3>
+                        <p class="lead tip-text">"Stay positive, work hard, make it happen."</p>
+                        <p class="mt-3 tip-description">This simple tip reminds us to remain optimistic and take
+                            consistent actions. Success is the result of both mindset and effort.
+                        </p>
+                        <p class="tip-category badge bg-secondary mt-2">Category: Motivation</p>
+                        <div class="tip-bg mt-3">
+                            <img class="tip-background img-fluid rounded" src="" alt="Background Image"/>
+                        </div>
                     </div>
-                    <br> </br>
-                    <group>
-                        <group col="2">
-                            <field name="tip_text"/>
-                            <field name="description"/>
-                        </group>
-                        <group col="2">
-                            <field name="category"/>
-                            <field name="date"/>
-                        </group>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
+                </div>
+            </div>
+        </section>
+    </template>
 
-    <record id="view_tip_snippet_list" model="ir.ui.view">
-        <field name="name">tip.snippet.list</field>
-        <field name="model">tip.snippet</field>
-        <field name="arch" type="xml">
-            <list string="Tips">
-                <field name="name"/>
-                <field name="tip_text"/>
-                <field name="category"/>
-                <field name="date"/>
-            </list>
-        </field>
-    </record>
-
-    <record id="action_tip_snippet" model="ir.actions.act_window">
-        <field name="name">Tips</field>
-        <field name="res_model">tip.snippet</field>
-        <field name="view_mode">list,form</field>
-    </record>
-
-    <menuitem id="menu_tip_snippet"
-              name="Tips"
-              parent="website.menu_website_global_configuration"
-              action="action_tip_snippet"
-              sequence="10"/>
+    <template id="assets_snippets" inherit_id="website.snippets" name="Add Tip Snippet to Builder">
+        <xpath expr="//snippets[@id='snippet_groups']" position="inside">
+            <t t-snippet="tip_of_the_day_snippet.tip_of_the_day_custom_snippet"
+               t-thumbnail="/tip_of_the_day_snippet/static/src/img/bulb_tip.svg"
+               t-name="Tips"/>
+        </xpath>
+    </template>
 </odoo>

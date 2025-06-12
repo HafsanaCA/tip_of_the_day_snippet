@@ -6,15 +6,18 @@
     'summary': 'A dynamic website snippet to show Tip of the Day',
     'depends': ['base','website'],
     'data': [
+        'views/tip_snippet_menu_views.xml',
         'views/tip_snippet_views.xml',
+        # 'views/tip_templates.xml',
         'security/ir.model.access.csv',
     ],
-    # 'assets': {
-    #     'web.assets_frontend': [
-    #         'tip_of_the_day_snippet/static/src/js/tip_snippet.js',
-    #         'tip_of_the_day_snippet/static/src/scss/tip_snippet.scss',
-    #     ],
-    # },
+    'assets': {
+        'web.assets_frontend': [
+                'tip_of_the_day_snippet/static/src/img/bulb_tip.svg',
+                'tip_of_the_day_snippet/static/src/js/tip_snippet.js',
+                'tip_of_the_day_snippet/static/src/xml/tip_templates.xml',
+        ],
+    },
     'installable': True,
     'application': False,
 }
