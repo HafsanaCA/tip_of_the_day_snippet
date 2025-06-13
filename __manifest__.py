@@ -8,14 +8,17 @@
     'data': [
         'views/tip_snippet_menu_views.xml',
         'views/tip_snippet_views.xml',
-        # 'views/tip_templates.xml',
         'security/ir.model.access.csv',
     ],
     'assets': {
         'web.assets_frontend': [
                 'tip_of_the_day_snippet/static/src/img/bulb_tip.svg',
                 'tip_of_the_day_snippet/static/src/js/tip_snippet.js',
+                # 'tip_of_the_day_snippet/static/src/js/tip_snippet_options.js',
                 'tip_of_the_day_snippet/static/src/xml/tip_templates.xml',
+        ],
+        'web.assets_editor': [
+                'tip_of_the_day_snippet/static/src/js/tip_snippet_options.js',
         ],
     },
     'installable': True,

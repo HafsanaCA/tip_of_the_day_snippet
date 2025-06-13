@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <template id="tip_of_the_day_custom_snippet" name="Tips">
-        <section class="oe_snippet_body o_colored_level tip-snippet-dynamic" data-snippet="tip_of_the_day" data-name="Tips">
-            <div class="container text-center">
-                <div class="row">
-                    <div class="col-12 text-center mt-4 p-5">
-                        <h3 class="tip-title">Tip of the day</h3>
-                        <p class="lead tip-text">"Stay positive, work hard, make it happen."</p>
-                        <p class="mt-3 tip-description">This simple tip reminds us to remain optimistic and take
-                            consistent actions. Success is the result of both mindset and effort.
-                        </p>
-                        <p class="tip-category badge bg-secondary mt-2">Category: Motivation</p>
-                        <div class="tip-bg mt-3">
-                            <img class="tip-background img-fluid rounded" src="" alt="Background Image"/>
-                        </div>
-                    </div>
-                </div>
+        <section class="oe_snippet_body o_colored_level tip-snippet-dynamic"
+                 data-snippet="tip_of_the_day"
+                 data-name="Tips">
+            <div class="tip-content-container text-center">
+                <p>Loading today's tip...</p>
             </div>
         </section>
     </template>
@@ -27,4 +17,12 @@
                t-name="Tips"/>
         </xpath>
     </template>
+
+    <template id="tip_snippet_options" inherit_id="website.snippet_options">
+        <xpath expr="//div[@data-js='Box']" position="before">
+            <div data-js="TipSnippetOptions" data-selector=".tip-snippet-dynamic"/>
+        </xpath>
+    </template>
+
+
 </odoo>
